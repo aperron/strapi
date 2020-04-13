@@ -509,7 +509,12 @@ In any JSON configuration file in your project, you can inject dynamic values li
         "username": "${process.env.DATABASE_USERNAME || ''}",
         "password": "${process.env.DATABASE_PASSWORD || ''}"
       },
-      "options": {}
+      "options": {
+        "pool": {
+          "min": "+${process.env.DATABASE_POOL_MIN || 5}",
+          "max": "+${process.env.DATABASE_POOL_MAX || 10}"
+        }
+      }
     }
   }
 }
